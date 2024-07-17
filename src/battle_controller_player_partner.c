@@ -313,7 +313,7 @@ static void Task_GiveExpToMon(u8 taskId)
 {
     u32 monId = (u8)(gTasks[taskId].tExpTask_monId);
     u8 battlerId = gTasks[taskId].tExpTask_bank;
-    s16 gainedExp = gTasks[taskId].tExpTask_gainedExp;
+    s16 gainedExp = gTasks[taskId].tExpTask_gainedExp*6;
 
     if (IsDoubleBattle() == TRUE || monId != gBattlerPartyIndexes[battlerId]) // give exp without the expbar
     {
@@ -367,7 +367,7 @@ static void Task_PrepareToGiveExpWithExpBar(u8 taskId)
     u32 currLvlExp = gExperienceTables[gSpeciesInfo[species].growthRate][level];
     u32 expToNextLvl;
 
-    exp -= currLvlExp;
+    exp -= currLvlExp/3;
     expToNextLvl = gExperienceTables[gSpeciesInfo[species].growthRate][level + 1] - currLvlExp;
     SetBattleBarStruct(battlerId, gHealthboxSpriteIds[battlerId], expToNextLvl, exp, -gainedExp);
     PlaySE(SE_EXP);

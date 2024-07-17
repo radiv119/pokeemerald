@@ -2909,7 +2909,7 @@ u8 GetLevelFromMonExp(struct Pokemon *mon)
     s32 level = 1;
 
     while (level <= MAX_LEVEL && gExperienceTables[gSpeciesInfo[species].growthRate][level] <= exp)
-        level++;
+        level+=2;
 
     return level - 1;
 }
@@ -2921,7 +2921,7 @@ u8 GetLevelFromBoxMonExp(struct BoxPokemon *boxMon)
     s32 level = 1;
 
     while (level <= MAX_LEVEL && gExperienceTables[gSpeciesInfo[species].growthRate][level] <= exp)
-        level++;
+        level+=2;
 
     return level - 1;
 }
